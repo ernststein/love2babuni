@@ -1,11 +1,13 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Heart } from "lucide-react";
+import image from './image/us.jpg';
+import musicFile from './audio/Blue-Yung-Kai.mp3';
 
 function App() {
 	const [openState, setOpenState] = useState(0);
-	const [audio] = useState(new Audio("/audio/Blue-Yung-Kai.mp3"));
 	const [isPlaying, setIsPlaying] = useState(false);
+	const audioRef = useRef(null);
 
 	const letterContent = `My Dearest Mashfika,
 
@@ -18,29 +20,42 @@ function App() {
 Forever Yours,
 Soumya Mahbub`;
 
+	// Initialize Audio
+	useEffect(() => {
+		audioRef.current = new Audio(musicFile);
+		audioRef.current.volume = 0;
+	}, []);
+
 	const handleOpen = () => {
-		if (!isPlaying) {
-			let volume = 0;
+		const audio = audioRef.current;
+		if (audio && !isPlaying) {
 			audio.volume = 0;
-			audio.play();
+			audio.play().catch((err) => console.error("Playback failed:", err));
 			setIsPlaying(true);
+
+			// Gradually increase volume over 3 seconds
+			let volume = 0;
 			const volumeInterval = setInterval(() => {
-				if (volume < 0.1) {
-					volume += 0.033; // Increase by about 0.033 every 100ms
-					audio.volume = Math.min(volume, 1); // Ensure volume does not exceed 1
+				if (volume < 1) {
+					volume += 0.003;
+					audio.volume = Math.min(volume, 1);
 				} else {
-					clearInterval(volumeInterval); // Stop once the volume reaches 1
+					clearInterval(volumeInterval);
 				}
-			}, 1000);
+			}, 100);
 		}
+
 		setOpenState(1);
 		setTimeout(() => setOpenState(2), 1500);
 	};
 
 	const handleClose = () => {
-		audio.pause();
-		audio.currentTime = 0;
-		audio.volume = 0;
+		const audio = audioRef.current;
+		if (audio) {
+			audio.pause();
+			audio.currentTime = 0;
+			audio.volume = 0;
+		}
 		setIsPlaying(false);
 		setOpenState(1);
 		setTimeout(() => setOpenState(0), 1500);
@@ -56,47 +71,19 @@ Soumya Mahbub`;
 						}`}
 						onClick={openState === 0 ? handleOpen : undefined}
 					>
-						<div
-							className={`flap top-flap ${
-								openState > 0 ? "open" : ""
-							}`}
-						/>
-						<div
-							className={`flap bottom-flap ${
-								openState > 0 ? "open" : ""
-							}`}
-						/>
-						<div
-							className={`letter-content ${
-								openState === 2 ? "visible" : ""
-							}`}
-						>
+						<div className={`flap top-flap ${openState > 0 ? "open" : ""}`} />
+						<div className={`flap bottom-flap ${openState > 0 ? "open" : ""}`} />
+						<div className={`letter-content ${openState === 2 ? "visible" : ""}`}>
 							<div className="header"> Happy Valentine’s Day, Babuni!</div>
 							<div className="photo-container">
 								<div className="floating-hearts">
-									<Heart
-										size={20}
-										className="floating-heart"
-									/>
-									<Heart
-										size={20}
-										className="floating-heart"
-									/>
-									<Heart
-										size={20}
-										className="floating-heart"
-									/>
-									<Heart
-										size={20}
-										className="floating-heart"
-									/>
+									<Heart size={20} className="floating-heart" />
+									<Heart size={20} className="floating-heart" />
+									<Heart size={20} className="floating-heart" />
+									<Heart size={20} className="floating-heart" />
 								</div>
 								<div className="photo-wrapper">
-									<img
-										src="/image/us.jpg"
-										alt="Us"
-										className="photo"
-									/>
+									<img src={image} alt="Us" className="photo" />
 								</div>
 							</div>
 
@@ -104,20 +91,13 @@ Soumya Mahbub`;
 
 							{openState === 2 && (
 								<div className="button-container">
-									<button
-										onClick={handleClose}
-										className="close-button"
-									>
+									<button onClick={handleClose} className="close-button">
 										Close Letter
 									</button>
 								</div>
 							)}
 						</div>
-						<div
-							className={`envelope-front ${
-								openState === 0 ? "visible" : ""
-							}`}
-						>
+						<div className={`envelope-front ${openState === 0 ? "visible" : ""}`}>
 							<Heart className="heart-icon" />
 							<div className="click-text">Click to Open</div>
 						</div>
