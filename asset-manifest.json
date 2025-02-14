@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/love2babuni/static/css/main.d5d92ec0.css",
-    "main.js": "/love2babuni/static/js/main.6bbf9751.js",
+    "main.js": "/love2babuni/static/js/main.7ef38f21.js",
     "static/js/488.4c9915f5.chunk.js": "/love2babuni/static/js/488.4c9915f5.chunk.js",
+    "static/media/Blue-Yung-Kai.mp3": "/love2babuni/static/media/Blue-Yung-Kai.666443837f2aa941ab44.mp3",
+    "static/media/us.jpg": "/love2babuni/static/media/us.f5fe0b1c3c95d0d58b44.jpg",
     "index.html": "/love2babuni/index.html",
     "main.d5d92ec0.css.map": "/love2babuni/static/css/main.d5d92ec0.css.map",
-    "main.6bbf9751.js.map": "/love2babuni/static/js/main.6bbf9751.js.map",
+    "main.7ef38f21.js.map": "/love2babuni/static/js/main.7ef38f21.js.map",
     "488.4c9915f5.chunk.js.map": "/love2babuni/static/js/488.4c9915f5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5d92ec0.css",
-    "static/js/main.6bbf9751.js"
+    "static/js/main.7ef38f21.js"
   ]
 }
