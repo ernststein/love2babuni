@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/love2babuni/static/css/main.747addbe.css",
-    "main.js": "/love2babuni/static/js/main.f7b11732.js",
+    "main.css": "/love2babuni/static/css/main.d5d92ec0.css",
+    "main.js": "/love2babuni/static/js/main.6bbf9751.js",
     "static/js/488.4c9915f5.chunk.js": "/love2babuni/static/js/488.4c9915f5.chunk.js",
     "index.html": "/love2babuni/index.html",
-    "main.747addbe.css.map": "/love2babuni/static/css/main.747addbe.css.map",
-    "main.f7b11732.js.map": "/love2babuni/static/js/main.f7b11732.js.map",
+    "main.d5d92ec0.css.map": "/love2babuni/static/css/main.d5d92ec0.css.map",
+    "main.6bbf9751.js.map": "/love2babuni/static/js/main.6bbf9751.js.map",
     "488.4c9915f5.chunk.js.map": "/love2babuni/static/js/488.4c9915f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.747addbe.css",
-    "static/js/main.f7b11732.js"
+    "static/css/main.d5d92ec0.css",
+    "static/js/main.6bbf9751.js"
   ]
 }
