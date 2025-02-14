@@ -1,223 +1,307 @@
 .container {
-  height: 100vh;
-  background-color: #fff1f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	height: 100vh;
+	background-color: #fff1f2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .letter-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 42rem;
+	position: relative;
+	width: 100%;
+	max-width: 42rem;
 }
 
 .envelope-container {
-  position: relative;
-  margin: 0 auto;
-  width: 22rem;
+	position: relative;
+	margin: 0 auto;
+	width: 22rem;
 }
 
 .envelope {
-  position: relative;
-  transition: all 1.5s ease-in-out;
-  cursor: pointer;
-  width: 22rem;
-  height: 16rem;
-  background-color: #ffe4e6;
+	position: relative;
+	transition: all 1.5s ease-in-out;
+	cursor: pointer;
+	width: 22rem;
+	height: 16rem;
+	background-color: #ffe4e6;
 }
 
 .envelope.open {
-  width: 100%;
-  max-width: 42rem;
-  height: 32rem;
+	width: 100%;
+	max-width: 42rem;
+	height: 34rem;
 }
 
 .envelope.fully-open {
-  background-color: white;
+	background-color: white;
 }
 
 .flap {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background-color: #fecdd3;
-  transition: all 1.5s;
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	background-color: #fecdd3;
+	transition: all 1.5s;
 }
 
 .top-flap {
-  transform-origin: bottom;
-  clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+	transform-origin: bottom;
+	clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
 }
 
 .bottom-flap {
-  bottom: 0;
-  transform-origin: top;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 50%, 0 100%);
+	bottom: 0;
+	transform-origin: top;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 50%, 0 100%);
 }
 
 .flap.open {
-  transform: scaleY(0);
+	transform: scaleY(0);
 }
 
 .letter-content {
-  z-index: 99;
-  position: absolute;
-  inset: 0;
-  padding: 2rem;
-  transition: all 1.5s;
-  opacity: 0;
-  display: flex;           /* Added */
-  flex-direction: column;  /* Added */
-  height: 100%;           /* Added */
+	z-index: 99;
+	position: absolute;
+	inset: 0;
+	padding: 1.5rem;
+	transition: all 1.5s;
+	opacity: 0;
+	display: flex; /* Added */
+	flex-direction: column; /* Added */
+	height: 100%; /* Added */
 }
 
 .letter-content.visible {
-  opacity: 1;
+	opacity: 1;
 }
 
 .photo-container {
-  width: 12rem;
-  height: 12rem;
-  margin: 0 auto 1.5rem auto;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transition: transform 1.5s;
-  flex-shrink: 0;
-  animation: float 6s ease-in-out infinite;
-  position: relative;
+	width: 12rem;
+	height: 12rem;
+	margin: 0 auto 1.5rem auto;
+	border-radius: 0.5rem;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	transition: transform 1.5s;
+	flex-shrink: 0;
+	animation: float 6s ease-in-out infinite;
+	position: relative;
 }
 
 .photo-wrapper {
-  width: 100%;
-  height: 100%;
-  border-radius: 0.5rem;
-  overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.5rem;
+	overflow: hidden;
 }
 
 .floating-hearts {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
+	position: absolute;
+	pointer-events: none;
+	z-index: 1;
 }
 
 .floating-heart {
-  position: absolute;
-  color: #f43f5e;
-  fill: #f43f5e;
-  opacity: 0;
-  animation: heartFloat 4s ease-in-out infinite;
+	position: absolute;
+	color: #f43f5e;
+	fill: #f43f5e;
+	opacity: 0;
+	animation: heartFloat 4s ease-in-out infinite;
 }
 
 .floating-heart svg {
-  fill: currentColor;  /* This ensures the SVG is filled with the current color */
+	fill: currentColor; /* This ensures the SVG is filled with the current color */
 }
 
-.floating-heart:nth-child(1) { --tx: 60px; --ty: -60px; animation-delay: 0s; left: 50%; top: 50%; }
-.floating-heart:nth-child(2) { --tx: -60px; --ty: -40px; animation-delay: 1s; left: 50%; top: 50%; }
-.floating-heart:nth-child(3) { --tx: 50px; --ty: 60px; animation-delay: 2s; left: 50%; top: 50%; }
-.floating-heart:nth-child(4) { --tx: -40px; --ty: 50px; animation-delay: 3s; left: 50%; top: 50%; }
+.floating-heart:nth-child(1) {
+	--tx: 60px;
+	--ty: -60px;
+	animation-delay: 0s;
+	left: 50%;
+	top: 50%;
+}
+.floating-heart:nth-child(2) {
+	--tx: -60px;
+	--ty: -40px;
+	animation-delay: 1s;
+	left: 50%;
+	top: 50%;
+}
+.floating-heart:nth-child(3) {
+	--tx: 50px;
+	--ty: 60px;
+	animation-delay: 2s;
+	left: 50%;
+	top: 50%;
+}
+.floating-heart:nth-child(4) {
+	--tx: -40px;
+	--ty: 50px;
+	animation-delay: 3s;
+	left: 50%;
+	top: 50%;
+}
 
 .photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .letter-text {
-  white-space: pre-line;
-  color: #1f2937;
-  line-height: 1.625;
-  font-family: serif;
-  overflow-y: scroll;       /* Keep this */
-  flex: 1; 
-  max-height: 100%;              /* Added */
-  padding-right: 1rem;   /* Added for scrollbar spacing */
+	white-space: pre-line;
+	color: #1f2937;
+	line-height: 1.625;
+	font-family: serif;
+	overflow-y: scroll; /* Keep this */
+	flex: 1;
+	max-height: 100%; /* Added */
+	padding-right: 1rem; /* Added for scrollbar spacing */
+	margin-top: 1rem;
 }
 
 .button-container {
-  margin-top: 2rem;
-  text-align: center;
-  flex-shrink: 0;         /* Added */
+	margin-top: 2rem;
+	text-align: center;
+	flex-shrink: 0; /* Added */
 }
 
 .close-button {
-  padding: 0.5rem 1.5rem;
-  background-color: #f43f5e;
-  color: white;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+	padding: 0.5rem 1.5rem;
+	background-color: #f43f5e;
+	color: white;
+	border-radius: 9999px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .close-button:hover {
-  background-color: #e11d48;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	background-color: #e11d48;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .envelope-front {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.7s;
-  opacity: 0;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.7s;
+	opacity: 0;
 }
 
 .envelope-front.visible {
-  opacity: 1;
+	opacity: 1;
 }
 
 .heart-icon {
-  width: 3rem;
-  height: 3rem;
-  color: #f43f5e;
+	width: 3rem;
+	height: 3rem;
+	color: #f43f5e;
 }
 
 .click-text {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #e11d48;
-  animation: bounce 1s infinite;
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #e11d48;
+	animation: bounce 1s infinite;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-  75% {
-    transform: translateY(8px) rotate(-1deg);
-  }
+	0%,
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-8px) rotate(1deg);
+	}
+	75% {
+		transform: translateY(8px) rotate(-1deg);
+	}
 }
 
 @keyframes heartFloat {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: translate(var(--tx), var(--ty)) scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 2)) scale(0);
-    opacity: 0;
-  }
+	0% {
+		transform: translate(0, 0) scale(0);
+		opacity: 0;
+	}
+	50% {
+		transform: translate(var(--tx), var(--ty)) scale(1);
+		opacity: 0.8;
+	}
+	100% {
+		transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 2)) scale(0);
+		opacity: 0;
+	}
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0) translateX(-50%);
-  }
-  50% {
-    transform: translateY(-0.5rem) translateX(-50%);
-  }
+	0%,
+	100% {
+		transform: translateY(0) translateX(-50%);
+	}
+	50% {
+		transform: translateY(-0.5rem) translateX(-50%);
+	}
+}
+
+.header {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #f43f5e;
+  margin-bottom: 1rem;
+}
+
+.letter-text {
+	/* Firefox */
+	scrollbar-width: thin;
+	scrollbar-color: #fecdd3 transparent;
+
+	/* Chrome, Edge, Safari */
+	&::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #fecdd3;
+		border-radius: 50px;
+
+		&:hover {
+			background: #fb7185;
+		}
+	}
+
+	/* Hide all scrollbar buttons/arrows */
+	&::-webkit-scrollbar-button:start:decrement,
+	&::-webkit-scrollbar-button:end:increment {
+		display: none;
+		height: 0;
+		width: 0;
+	}
+
+	/* Extra measure to hide arrows in Firefox */
+	scrollbar-arrow-color: transparent;
+
+	/* Ensure smooth scrolling */
+	scroll-behavior: smooth;
+
+	/* Hide scrollbar on mobile devices */
+	@media (max-width: 768px) {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 }

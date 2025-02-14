@@ -71,6 +71,7 @@ Soumya Mahbub`;
 								openState === 2 ? "visible" : ""
 							}`}
 						>
+							<div className="header"> Happy Valentine’s Day, Babuni!</div>
 							<div className="photo-container">
 								<div className="floating-hearts">
 									<Heart
